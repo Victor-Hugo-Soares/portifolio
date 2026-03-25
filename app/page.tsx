@@ -8,9 +8,9 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-0 overflow-x-hidden">
       <Hero />
+      <Projects />
       <About />
       <Skills />
-      <Projects />
       <Contact />
     </div>
   );

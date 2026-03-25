@@ -16,7 +16,7 @@ const projects = [
   {
     title: "Super Fitness Store",
     description: "E-commerce premium de equipamentos profissionais para academias e condomínios.",
-    image: "/projects/superfitness.jpeg",
+    image: "/projects/superfitness.jpg",
     link: "https://superfitness-store.vercel.app/",
     repo: null,
     tags: ["React", "Next.js", "Tailwind CSS", "Lucide Icons"],
