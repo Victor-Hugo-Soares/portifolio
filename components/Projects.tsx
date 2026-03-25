@@ -85,14 +85,12 @@ export default function Projects() {
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                {project.isDownload && (
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="text-white font-bold bg-primary-500 px-4 py-2 rounded-lg flex items-center gap-2">
-                      <ExternalLink size={20} />
-                      Baixar Catálogo
-                    </span>
-                  </div>
-                )}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span className="text-white font-bold bg-primary-500 px-4 py-2 rounded-lg flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    <ExternalLink size={20} />
+                    {project.isDownload ? "Baixar Catálogo" : "Ver Projeto"}
+                  </span>
+                </div>
               </a>
 
               <div className="p-6 flex-grow flex flex-col">
