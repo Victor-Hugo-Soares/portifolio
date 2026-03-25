@@ -22,6 +22,15 @@ const projects = [
     tags: ["React", "Next.js", "Tailwind CSS", "Lucide Icons"],
   },
   {
+    title: "Catálogo Super Fitness",
+    description: "Catálogo completo de produtos 2026 com especificações técnicas e equipamentos de elite.",
+    image: "/projects/catalogo.jpg",
+    link: "/catalogo_superfitness.pdf",
+    repo: null,
+    isDownload: true,
+    tags: ["PDF", "Equipamentos", "Catálogo"],
+  },
+  {
     title: "Law Match",
     description: "Jogo interativo para testar conhecimentos jurídicos com sistema de cards tipo match.",
     image: "/projects/law.jpg",
@@ -63,14 +72,28 @@ export default function Projects() {
               key={project.title}
               className="bg-white dark:bg-black rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm card-hover flex flex-col"
             >
-              <div className="relative h-48 w-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                download={project.isDownload}
+                className="relative h-48 w-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center cursor-pointer group"
+              >
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover hover:scale-110 transition-transform duration-500"
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-              </div>
+                {project.isDownload && (
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="text-white font-bold bg-primary-500 px-4 py-2 rounded-lg flex items-center gap-2">
+                      <ExternalLink size={20} />
+                      Baixar Catálogo
+                    </span>
+                  </div>
+                )}
+              </a>
 
               <div className="p-6 flex-grow flex flex-col">
                 <div className="flex gap-2 flex-wrap mb-4">
@@ -97,10 +120,20 @@ export default function Projects() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    download={project.isDownload}
                     className="flex items-center gap-2 text-sm font-semibold text-primary-500 hover:text-primary-600 transition-colors"
                   >
-                    <ExternalLink size={16} />
-                    Live Demo
+                    {project.isDownload ? (
+                      <>
+                        <ExternalLink size={16} />
+                        Download PDF
+                      </>
+                    ) : (
+                      <>
+                        <ExternalLink size={16} />
+                        Live Demo
+                      </>
+                    )}
                   </a>
                   {project.repo && (
                     <a
