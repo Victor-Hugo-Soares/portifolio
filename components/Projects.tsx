@@ -14,11 +14,19 @@ const projects = [
     tags: ["Next.js", "Node.js", "PostgreSQL", "Tailwind CSS"],
   },
   {
+    title: "Super Fitness Store",
+    description: "E-commerce premium de equipamentos profissionais para academias e condomínios.",
+    image: "/projects/superfitness.jpeg",
+    link: "https://superfitness-store.vercel.app/",
+    repo: null,
+    tags: ["React", "Next.js", "Tailwind CSS", "Lucide Icons"],
+  },
+  {
     title: "Law Match",
     description: "Jogo interativo para testar conhecimentos jurídicos com sistema de cards tipo match.",
     image: "/projects/law.jpg",
     link: "https://law-match.vercel.app/",
-    repo: "https://github.com/Victor-Hugo-Soares/law-match",
+    repo: null,
     tags: ["React", "TypeScript", "Tailwind CSS"],
   },
   {
@@ -26,7 +34,7 @@ const projects = [
     description: "Site premium para clínica de estética com protocolos personalizados e agendamento.",
     image: "/projects/talitha.jpg",
     link: "https://talitha-pedroso-ipsi.vercel.app/",
-    repo: "https://github.com/Victor-Hugo-Soares/talitha-pedroso",
+    repo: null,
     tags: ["Next.js", "Styled Components", "Framer Motion"],
   },
   {
@@ -34,7 +42,7 @@ const projects = [
     description: "Landing page moderna para salão de beleza com foco em conversão e agendamento.",
     image: "/projects/studiobela.jpg",
     link: "https://studio-bela.vercel.app/",
-    repo: "https://github.com/Victor-Hugo-Soares/studio-bela",
+    repo: null,
     tags: ["React", "Tailwind CSS", "Lucide Icons"],
   },
 ];
