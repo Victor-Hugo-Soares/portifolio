@@ -6,6 +6,14 @@ import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
+    title: "Yumi Nakamura",
+    description: "E-commerce completo de moda e semijoias com sistema de pagamentos integrado e painel administrativo personalizado.",
+    image: "/projects/yumi.jpg",
+    link: "https://yuminakamura.com.br/",
+    repo: null,
+    tags: ["Next.js", "Node.js", "Pagamentos", "Dashboard Admin"],
+  },
+  {
     title: "VRDsystem",
     description: "SaaS de gestão empresarial para armazéns com rastreio total em tempo real e IA integrada.",
     image: "/projects/vrd.jpg",
@@ -29,6 +37,14 @@ const projects = [
     repo: null,
     isDownload: true,
     tags: ["PDF", "Equipamentos", "Catálogo"],
+  },
+  {
+    title: "Genius Informática",
+    description: "Landing page otimizada para alta conversão em campanhas de Google Ads para assistência técnica.",
+    image: "/projects/genius.jpg",
+    link: "https://genius-informatica.vercel.app/",
+    repo: null,
+    tags: ["React", "Google Ads", "Tailwind CSS", "SEO"],
   },
   {
     title: "Law Match",
