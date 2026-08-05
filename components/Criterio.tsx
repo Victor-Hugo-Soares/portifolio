@@ -59,38 +59,23 @@ export default function Criterio() {
       mm.add("(max-width: 1023px) and (prefers-reduced-motion: no-preference)", () => {
         const paineis = gsap.utils.toArray<HTMLElement>("[data-painel]");
 
+        // O card entra legível e permanece legível. O recuo só acontece quando o
+        // card seguinte está de fato subindo por cima — não quando ele apenas
+        // aparece no rodapé. Antes o texto apagava com o usuário ainda lendo.
         paineis.forEach((p, i) => {
-          // entra levantando e girando de leve
-          gsap.fromTo(
-            p,
-            { opacity: 0.25, scale: 0.97 },
-            {
-              opacity: 1,
-              scale: 1,
-              ease: "power2.out",
-              scrollTrigger: {
-                trigger: p,
-                start: "top 96%",
-                end: "top 70%",
-                scrub: 0.4,
-              },
-            }
-          );
+          if (i >= paineis.length - 1) return;
 
-          // os de baixo recuam quando o próximo cobre — dá a sensação de pilha
-          if (i < paineis.length - 1) {
-            gsap.to(p, {
-              scale: 0.94,
-              opacity: 0.55,
-              ease: "none",
-              scrollTrigger: {
-                trigger: paineis[i + 1],
-                start: "top 80%",
-                end: "top 30%",
-                scrub: 0.5,
-              },
-            });
-          }
+          gsap.to(p, {
+            scale: 0.97,
+            opacity: 0.72,
+            ease: "none",
+            scrollTrigger: {
+              trigger: paineis[i + 1],
+              start: "top 48%",   // o próximo já passou da metade da tela
+              end: "top 14%",     // e está encostando no topo, cobrindo este
+              scrub: 0.4,
+            },
+          });
         });
       });
 
