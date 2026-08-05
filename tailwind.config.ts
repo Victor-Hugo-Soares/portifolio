@@ -1,37 +1,50 @@
 import type { Config } from "tailwindcss";
 
+/**
+ * Design system — DOSSIÊ EDITORIAL
+ * Direção aprovada em 05/08/2026: papel, serif, terracota, respiro.
+ * Coerente com a identidade dos carrosséis do LinkedIn.
+ * Não reintroduzir: dark mode neon, gradiente violeta/ciano, glow, grade de logos de stack.
+ */
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: "#f0f9ff",
-          100: "#e0f2fe",
-          200: "#bae6fd",
-          300: "#7dd3fc",
-          400: "#38bdf8",
-          500: "#0ea5e9",
-          600: "#0284c7",
-          700: "#0369a1",
-          800: "#075985",
-          900: "#0c4a6e",
-          950: "#082f49",
+        papel: {
+          DEFAULT: "#F5F1E8",
+          fundo: "#EFEADE",
+          claro: "#FBF9F4",
         },
-        accent: {
-          blue: "#3b82f6",
-          green: "#10b981",
-        }
+        tinta: {
+          DEFAULT: "#1A1816",
+          suave: "#3A3632",
+        },
+        grafite: "#5C5650",
+        acento: {
+          DEFAULT: "#A83E2A",
+          claro: "#C25A44",
+          fundo: "#F3E6E1",
+        },
+        linha: {
+          DEFAULT: "#D8D0C0",
+          forte: "#BDB3A0",
+        },
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontFamily: {
+        display: ["Zodiak", "Georgia", "Cambria", "serif"],
+        sans: ["Switzer", "Segoe UI", "system-ui", "sans-serif"],
+        mono: ["Consolas", "Monaco", "monospace"],
+      },
+      letterSpacing: {
+        kicker: "0.22em",
+      },
+      maxWidth: {
+        leitura: "68ch",
       },
     },
   },

@@ -1,94 +1,60 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import { useTheme } from "@/lib/ThemeContext";
-import { Sun, Moon, Menu, X } from "lucide-react";
+import React, { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { perfil } from "@/lib/conteudo";
 
-const navLinks = [
-  { name: "Início", href: "#hero" },
-  { name: "Sobre", href: "#about" },
-  { name: "Habilidades", href: "#skills" },
-  { name: "Projetos", href: "#projects" },
-  { name: "Contato", href: "#contact" },
+const links = [
+  { nome: "Casos", href: "#casos" },
+  { nome: "Como decido", href: "#como-decido" },
+  { nome: "Competências", href: "#competencias" },
+  { nome: "Escrita", href: "#escrita" },
+  { nome: "Contato", href: "#contato" },
 ];
 
 export default function Header() {
-  const { theme, toggleTheme } = useTheme();
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [aberto, setAberto] = useState(false);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-md py-3"
-          : "bg-transparent py-5"
-      }`}
-    >
-      <div className="container mx-auto px-6 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold gradient-text">
-          VH
-        </Link>
+    <header className="border-b border-linha bg-papel">
+      <div className="medida flex items-center justify-between py-7">
+        <a href="#inicio" className="font-display text-[17px] font-bold tracking-[-0.01em] md:text-[19px]">
+          {perfil.nome}
+        </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium hover:text-primary-500 transition-colors"
+        <nav className="hidden items-center gap-8 md:flex">
+          {links.map((l) => (
+            <a
+              key={l.nome}
+              href={l.href}
+              className="font-display text-[15.5px] text-grafite transition-colors hover:text-acento"
             >
-              {link.name}
-            </Link>
+              {l.nome}
+            </a>
           ))}
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 transition-colors"
-            aria-label="Alternar tema"
-          >
-            {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
-          </button>
         </nav>
 
-        {/* Mobile Toggle */}
-        <div className="md:hidden flex items-center space-x-4">
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full bg-gray-100 dark:bg-gray-800"
-          >
-            {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
-          </button>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 text-gray-600 dark:text-gray-300"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+        <button
+          onClick={() => setAberto(!aberto)}
+          className="text-tinta md:hidden"
+          aria-label="Abrir menu"
+        >
+          {aberto ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </div>
 
-      {/* Mobile Navigation Menu */}
-      {isOpen && (
-        <nav className="md:hidden bg-white dark:bg-black border-t border-gray-100 dark:border-gray-800">
-          <div className="flex flex-col p-6 space-y-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="text-lg font-medium hover:text-primary-500 transition-colors"
+      {aberto && (
+        <nav className="border-t border-linha md:hidden">
+          <div className="medida flex flex-col py-2">
+            {links.map((l) => (
+              <a
+                key={l.nome}
+                href={l.href}
+                onClick={() => setAberto(false)}
+                className="border-b border-linha py-3.5 font-display text-[17px] last:border-0"
               >
-                {link.name}
-              </Link>
+                {l.nome}
+              </a>
             ))}
           </div>
         </nav>

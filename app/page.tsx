@@ -1,17 +1,23 @@
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Skills from "@/components/Skills";
-import Projects from "@/components/Projects";
+import Resolvo from "@/components/Resolvo";
+import Criterio from "@/components/Criterio";
+import Casos from "@/components/Casos";
+import Competencias from "@/components/Competencias";
+import TambemConstrui from "@/components/TambemConstrui";
+import Escrita from "@/components/Escrita";
 import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-0 overflow-x-hidden">
+    <main className="overflow-x-clip">
       <Hero />
-      <Projects />
-      <About />
-      <Skills />
+      <Resolvo />
+      <Criterio />
+      <Casos />
+      <Competencias />
+      <TambemConstrui />
+      <Escrita />
       <Contact />
-    </div>
+    </main>
   );
 }

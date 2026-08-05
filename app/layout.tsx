@@ -1,29 +1,30 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ThemeProvider } from "@/lib/ThemeContext";
-
-const inter = Inter({ subsets: ["latin"] });
+import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
-  title: "Victor Hugo Soares Lins | Desenvolvedor Fullstack",
-  description: "Portfólio de Victor Hugo Soares Lins - Desenvolvedor Fullstack especializado em automações, APIs e IA.",
-  keywords: ["Victor Hugo Soares Lins", "Desenvolvedor Fullstack", "Automações", "APIs", "IA", "Next.js", "TypeScript"],
+  title: "Victor Hugo Soares Lins | Especialista em Inteligência Artificial e Automação",
+  description:
+    "Levo Inteligência Artificial do experimento até a produção: agentes de IA, visão computacional e automação de processos — com custo por operação sob controle.",
+  keywords: [
+    "Victor Hugo Soares Lins",
+    "Especialista em Inteligência Artificial",
+    "IA Generativa",
+    "Agentes de IA",
+    "LLM",
+    "Automação de Processos",
+    "Visão Computacional",
+    "Inovação",
+  ],
   authors: [{ name: "Victor Hugo Soares Lins" }],
   openGraph: {
-    title: "Victor Hugo Soares Lins | Desenvolvedor Fullstack",
-    description: "Desenvolvedor Fullstack focado em automações, integrações via APIs/Webhooks e implementação de agentes de IA.",
-    url: "https://victorhlins.com", // Adjust later if needed
-    siteName: "Victor Hugo Portfolio",
-    images: [
-      {
-        url: "/avatar.jpg",
-        width: 800,
-        height: 600,
-      },
-    ],
+    title: "Victor Hugo Soares Lins | Especialista em Inteligência Artificial e Automação",
+    description:
+      "Processos manuais viram sistemas que rodam sozinhos. Agentes de IA, visão computacional e automação em produção.",
+    url: "https://victor-hugo-soares.vercel.app",
+    siteName: "Victor Hugo Soares Lins",
     locale: "pt_BR",
     type: "website",
   },
@@ -35,15 +36,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
-      <body className={`${inter.className} transition-colors duration-300`}>
-        <ThemeProvider>
-          <div className="flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-          </div>
-        </ThemeProvider>
+    <html lang="pt-BR">
+      <head>
+        <link rel="preload" href="/fonts/zodiak-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/switzer-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      </head>
+      <body className="flex min-h-screen flex-col bg-papel text-tinta">
+        <span className="progresso-leitura" aria-hidden />
+        <SmoothScroll />
+        <Header />
+        <div className="flex-grow">{children}</div>
+        <Footer />
       </body>
     </html>
   );
